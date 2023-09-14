@@ -1,0 +1,10 @@
+# Entornos virtuales
+venv/
+
+# Registros y archivos generados por la aplicación
+db.sqlite
+
+# Entornos de desarrollo
+.vscode/
+.idea/
+.env
