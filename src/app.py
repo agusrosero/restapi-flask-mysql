@@ -4,7 +4,7 @@ from flask_marshmallow import Marshmallow
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@localhost/flask_restapi'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:administrador123456789@localhost/flask_restapi'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -34,16 +34,17 @@ clubs_schema = ClubSchema(many=True)
 
 @app.route('/clubs', methods=['POST'])
 def create_club():
+
     name = request.json['name']
     year = request.json['year']
     colors = request.json['colors']
     stadium = request.json['stadium']
 
-    new_club = Club(name, year, colors, stadium)
+    new_club = Club(name=name, year=year, colors=colors, stadium=stadium)
+
     db.session.add(new_club)
     db.session.commit()
-
-    return club_schema.jsonify(new_club)
+    return jsonify({"message": "Club creado exitosamente"}), 201
 
 @app.route('/clubs', methods=['GET'])
 def get_clubs():
