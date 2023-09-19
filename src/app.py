@@ -27,6 +27,7 @@ class Club(db.Model):
 class ClubSchema(ma.Schema):
     
     class Meta:
+        # SHOW
         fields = ('id', 'name', 'year', 'colors', 'stadium')
 
 club_schema = ClubSchema()
