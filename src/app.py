@@ -27,7 +27,7 @@ class Club(db.Model):
 class ClubSchema(ma.Schema):
     
     class Meta:
-        # SHOW
+        # SHOW in postman
         fields = ('id', 'name', 'year', 'colors', 'stadium')
 
 club_schema = ClubSchema()
